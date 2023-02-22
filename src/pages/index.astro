@@ -46,7 +46,7 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .title {
-    font-size: g.calc(font-size, 375px, 1200px, 16px, 32px);
+    @include g.calc(font-size, 375px, 1200px, 16px, 32px);
     font-weight: 400;
     text-align: center;
   }
