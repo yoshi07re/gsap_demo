@@ -1,0 +1,11 @@
+@use "sass:math";
+
+@function vw($size, $viewport: 375) {
+  $rate: calc(math.div(100, $viewport));
+  @return $rate * $size * 1vw;
+}
+
+// 使い方
+// .hoge {
+//   font-size: g.vw(40px, 768px);
+// }

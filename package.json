@@ -1,0 +1,38 @@
+{
+  "name": "@example/basics",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "stylelint": "stylelint --ignore-path .gitignore \"src/**/*.+(css|scss)\"",
+    "stylelintfix": "npm run stylelint -- --fix",
+    "xo": "xo",
+    "xo:fix": "xo --fix",
+    "format": "prettier --write \"**/*.+(js|json|yml|scss|css|json)\""
+  },
+  "dependencies": {
+    "@fontsource/noto-sans-jp": "^4.5.12",
+    "@fontsource/yakuhanjp": "^4.5.3",
+    "astro": "^2.0.13",
+    "gsap": "^3.11.4",
+    "ress": "^5.0.2",
+    "swiper": "^9.0.5"
+  },
+  "devDependencies": {
+    "postcss": "^8.4.21",
+    "prettier": "^2.7.1",
+    "prettier-plugin-astro": "^0.7.0",
+    "sass": "^1.58.2",
+    "stylelint": "^14.14.1",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-recess-order": "^3.0.0",
+    "stylelint-config-recommended-scss": "^8.0.0",
+    "stylelint-config-standard": "^29.0.0",
+    "stylelint-prettier": "^2.0.0"
+  }
+}

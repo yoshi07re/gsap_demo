@@ -1,0 +1,22 @@
+// breakpoints
+// ============================================
+$breakpoints: (
+  "x": (
+    min-width: 375px,
+  ),
+  "xs": (
+    min-width: 460px,
+  ),
+  "sm": (
+    min-width: 640px,
+  ),
+  "md": (
+    min-width: 768px,
+  ),
+  "lg": (
+    min-width: 1000px,
+  ),
+  "xl": (
+    min-width: 1280px,
+  ),
+) !default;

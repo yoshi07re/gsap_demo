@@ -1,0 +1,72 @@
+---
+import Demo01 from "../components/demo/01/Demo01.astro";
+import Demo02 from "../components/demo/02/Demo02.astro";
+import Demo03 from "../components/demo/03/Demo03.astro";
+import Demo04 from "../components/demo/04/Demo04.astro";
+import Section from "../components/Section.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="GSAPサンプルページ">
+  <main>
+    <section class="main">
+      <h1 class="title">GSAPサンプルページ</h1>
+      <p style="text-align: center;">あくまでもサンプルコードです。書き方は複数あります。</p>
+    </section>
+    <Section>
+      <Demo01 />
+    </Section>
+    <Section>
+      <Demo02 />
+    </Section>
+    <Section>
+      <Demo03 />
+    </Section>
+    <Section>
+      <Demo04 />
+    </Section>
+  </main>
+</Layout>
+
+<style lang="scss" is:global>
+  @use "../style/global/index" as g;
+
+  .main {
+    padding-top: g.rem(64);
+  }
+
+  .title {
+    font-size: g.rem(32);
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .heading {
+    font-size: g.rem(24);
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .cont {
+    margin-top: g.rem(32);
+  }
+
+  .md {
+    &:not(:first-of-type) {
+      margin-top: g.rem(64);
+    }
+
+    h3 {
+      margin-top: g.rem(32);
+    }
+  }
+
+  .astro-code {
+    margin-top: g.rem(16);
+    border-radius: 0.375rem;
+    padding: g.rem(16) g.rem(24);
+    font-weight: 400;
+    font-size: g.rem(14);
+    line-height: 1.7;
+  }
+</style>

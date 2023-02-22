@@ -1,0 +1,248 @@
+---
+import Demo04 from "./Demo04.md";
+---
+
+<h2 class="heading">swiper.js+gsapアニメーション</h2>
+<div class="cont sample">
+  <div class="p-rtoasterSwiper">
+    <div class="p-rtoasterSwiper__body js-rtoasterSwiper swiper">
+      <ul class="p-rtoasterSwiper__wrap swiper-wrapper js-swiperStagger">
+        <li id="rtpc_recommend_002_1" class="p-rtoasterSwiper__item swiper-slide">
+          <img src="https://placehold.jp/400x400.png" alt="" />
+        </li>
+        <li id="rtpc_recommend_002_2" class="p-rtoasterSwiper__item swiper-slide">
+          <img src="https://placehold.jp/400x400.png" alt="" />
+        </li>
+        <li id="rtpc_recommend_002_3" class="p-rtoasterSwiper__item swiper-slide">
+          <img src="https://placehold.jp/400x400.png" alt="" />
+        </li>
+        <li id="rtpc_recommend_002_4" class="p-rtoasterSwiper__item swiper-slide">
+          <img src="https://placehold.jp/400x400.png" alt="" />
+        </li>
+        <li id="rtpc_recommend_002_5" class="p-rtoasterSwiper__item swiper-slide">
+          <img src="https://placehold.jp/400x400.png" alt="" />
+        </li>
+        <li id="rtpc_recommend_002_6" class="p-rtoasterSwiper__item swiper-slide">
+          <img src="https://placehold.jp/400x400.png" alt="" />
+        </li>
+        <li id="rtpc_recommend_002_7" class="p-rtoasterSwiper__item swiper-slide">
+          <img src="https://placehold.jp/400x400.png" alt="" />
+        </li>
+        <li id="rtpc_recommend_002_8" class="p-rtoasterSwiper__item swiper-slide">
+          <img src="https://placehold.jp/400x400.png" alt="" />
+        </li>
+      </ul>
+    </div>
+    <div class="js-swiperBtn">
+      <div class="p-rtoasterSwiper__button p-rtoasterSwiper__button--prev" data-tracking="special_prev">
+        <button class="-prev" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="false">
+          <i class="p-rtoasterSwiper__buttonIcon"><img src="https://www.takashimaya.co.jp/sto/common/image/icn_slider-prev-b.png" alt="" /></i>
+        </button>
+      </div>
+      <div class="p-rtoasterSwiper__button p-rtoasterSwiper__button--next" data-tracking="special_next">
+        <button class="-next" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false">
+          <i class="p-rtoasterSwiper__buttonIcon"><img src="https://www.takashimaya.co.jp/sto/common/image/icn_slider-next-b.png" alt="" /></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="md">
+  <Demo04 />
+</div>
+
+<style lang="scss">
+  .p-rtoasterSwiper {
+    position: relative;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+
+  .p-rtoasterSwiper.is-load {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .p-rtoasterSwiper__body {
+    position: relative;
+    z-index: 1;
+    width: calc(100% - 80px);
+    padding: 0;
+    margin-right: auto;
+    margin-left: auto;
+    overflow: hidden;
+    list-style: none;
+    touch-action: pan-y;
+  }
+
+  @media screen and (max-width: 768px) {
+    .p-rtoasterSwiper__body {
+      width: 100%;
+      padding: 0 10%;
+      overflow: visible;
+    }
+  }
+
+  .p-rtoasterSwiper__wrap {
+    position: relative;
+    z-index: 1;
+    box-sizing: content-box;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    transition-timing-function: ease-out;
+    transition-property: transform;
+  }
+
+  .p-rtoasterSwiper__item {
+    position: relative;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    transition-property: transform;
+    backface-visibility: hidden;
+  }
+
+  /* swiper default class add */
+  @media screen and (max-width: 768px) {
+    .p-rtoasterSwiper__button {
+      display: none;
+      visibility: hidden;
+    }
+  }
+
+  //navigation
+  .p-rtoasterSwiper__button {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    width: 40px;
+    height: 105%;
+    background: #fff;
+    transition: 0.175s;
+    transform: translateY(-50%);
+  }
+
+  .p-rtoasterSwiper__button button {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .p-rtoasterSwiper__buttonIcon {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 21px;
+    font-size: 0;
+    line-height: 0;
+    cursor: pointer;
+  }
+
+  .p-rtoasterSwiper__buttonIcon img {
+    position: absolute;
+    top: 50%;
+    width: auto;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  //prev
+  .p-rtoasterSwiper__button--prev {
+    left: 0;
+  }
+
+  .p-rtoasterSwiper__button--prev.swiper-button-disabled {
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  .p-rtoasterSwiper__button--prev img {
+    left: 0;
+    transform: translateY(-50%);
+  }
+
+  //next
+  .p-rtoasterSwiper__button--next {
+    right: 0;
+  }
+
+  .p-rtoasterSwiper__button--next.swiper-button-disabled {
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  .p-rtoasterSwiper__button--next img {
+    right: 0;
+    transform: translateY(-50%);
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import Swiper, { FreeMode, Navigation } from "swiper";
+
+  gsap.registerPlugin(ScrollTrigger);
+  Swiper.use([Navigation, FreeMode]);
+
+  const option = {
+    slidesPerView: 2,
+    spaceBetween: 24,
+    on: {
+      init: function () {
+        const swiperLoad = document.querySelector(".p-rtoasterSwiper");
+        swiperLoad!.classList.add("is-load");
+      },
+    },
+    freeMode: {
+      enabled: true,
+      sticky: true,
+      minimumVelocity: 0.4,
+      momentumBounce: true,
+      momentumRatio: 0.4,
+    },
+    breakpoints: {
+      769: {
+        slidesPerView: 4,
+        navigation: {
+          nextEl: ".p-rtoasterSwiper__button--next",
+          prevEl: ".p-rtoasterSwiper__button--prev",
+        },
+      },
+    },
+  };
+
+  const swiper = new Swiper(".js-rtoasterSwiper", option);
+
+  //gsap.js
+  gsap.set(".js-swiperStagger li:nth-child(-n+4)", { opacity: 0, x: 40 });
+  gsap.set(".js-swiperBtn", { opacity: 0 });
+
+  gsap
+    .timeline({
+      defaults: {
+        duration: 0.6,
+      },
+      scrollTrigger: {
+        trigger: ".js-swiperStagger",
+        start: "top 75%",
+        toggleActions: "play none none reverse",
+      },
+    })
+    .to(".js-swiperStagger li:nth-child(-n+4)", {
+      opacity: 1,
+      x: 0,
+      stagger: {
+        amount: 0.8,
+        from: "start",
+        ease: "sine.in",
+      },
+    })
+    .to(".js-swiperBtn", { opacity: 1 });
+</script>

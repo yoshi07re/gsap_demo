@@ -1,0 +1,36 @@
+---
+---
+
+<section class="section">
+  <div class="inner">
+    <div class="wrap">
+      <slot />
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../style/global/index" as g;
+
+  .section {
+    max-width: 1200px;
+    padding-top: g.clamp-calc(375px, 1200px, 64px, 80px);
+    margin: 0 auto;
+  }
+
+  .inner {
+    padding: 0 g.vw(16px, 375px);
+
+    @include g.mq(md) {
+      padding: 0 g.vw(32px, 1200px);
+    }
+  }
+
+  .wrap {
+    overflow: hidden;
+    padding: g.clamp-calc(375px, 1200px, 40px, 64px) g.clamp-calc(375px, 1200px, 16px, 32px);
+    border-radius: 12px;
+    box-shadow: 0 2px 4px #4385bb12;
+    background-color: #fefefe;
+  }
+</style>
