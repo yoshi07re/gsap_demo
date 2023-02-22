@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="generator" content="Astro v2.0.13">
+    <title>GSAPサンプルページ</title>
+  <link rel="stylesheet" href="/gsap_demo/_astro/index.5c4c8de9.css" /><script type="module" src="/gsap_demo/_astro/hoisted.8f6f2155.js"></script></head>
+  <body>
+    <header class="header astro-3EF6KSR2">
+  <div class="inner astro-3EF6KSR2">
+    <p class="text astro-3EF6KSR2">GSAP</p>
+  </div>
+</header>
+    <main>
+    <section class="main">
+      <h1 class="title">GSAPサンプルページ</h1>
+      <p style="text-align: center;">あくまでもサンプルコードです。書き方は複数あります。</p>
+    </section>
+    <section class="section astro-SH445JDO">
+  <div class="inner astro-SH445JDO">
+    <div class="wrap astro-SH445JDO">
+      <div class="md">
+  <h2 id="gsap導入方法">GSAP導入方法</h2>
+<h3 id="cdnで使用">CDNで使用</h3>
+<pre is:raw="" class="astro-code" style="background-color: #282c34; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;"><code><span class="line"><span style="color: #ABB2BF">&#x3C;</span><span style="color: #E06C75">script</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">src</span><span style="color: #56B6C2">=</span><span style="color: #98C379">"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"</span><span style="color: #ABB2BF">>&#x3C;/</span><span style="color: #E06C75">script</span><span style="color: #ABB2BF">></span></span>
+<span class="line"><span style="color: #ABB2BF">&#x3C;</span><span style="color: #E06C75">script</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">src</span><span style="color: #56B6C2">=</span><span style="color: #98C379">"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"</span><span style="color: #ABB2BF">>&#x3C;/</span><span style="color: #E06C75">script</span><span style="color: #ABB2BF">></span></span></code></pre>
+<h3 id="yarnで使用">yarnで使用</h3>
+<pre is:raw="" class="astro-code" style="background-color: #282c34; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;"><code><span class="line"><span style="color: #E06C75">yarn</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">add</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">gsap</span></span></code></pre>
+</div>
+    </div>
+  </div>
+</section>
+    <section class="section astro-SH445JDO">
+  <div class="inner astro-SH445JDO">
+    <div class="wrap astro-SH445JDO">
+      <div class="js-fade astro-AXYYMIHJ">
+  <h2 class="heading astro-AXYYMIHJ">フェードインアニメーション</h2>
+  <div class="cont sample astro-AXYYMIHJ">
+    <div class="item astro-AXYYMIHJ"></div>
+    <div class="item astro-AXYYMIHJ"></div>
+    <div class="item astro-AXYYMIHJ"></div>
+    <div class="item astro-AXYYMIHJ"></div>
+  </div>
+</div>
+
+<div class="md astro-AXYYMIHJ">
+  <h3 id="使用例">使用例</h3>
+<p>アニメーションを使い回してそれぞれ発火させたい場合</p>
+<pre is:raw="" class="astro-code" style="background-color: #282c34; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;"><code><span class="line"><span style="color: #E5C07B">gsap</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">registerPlugin</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">ScrollTrigger</span><span style="color: #ABB2BF">); </span><span style="color: #7F848E">//ScrollTrigger プラグインを登録</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E5C07B">gsap</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">utils</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">toArray</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">".js-fade"</span><span style="color: #ABB2BF">).</span><span style="color: #61AFEF">forEach</span><span style="color: #ABB2BF">((</span><span style="color: #E06C75">item</span><span style="color: #ABB2BF">) </span><span style="color: #C678DD">=></span><span style="color: #ABB2BF"> { </span><span style="color: #7F848E">//.js-fade"というクラス名を持つ全ての要素を配列に変換し、配列の各要素に対して forEach メソッドを使って繰り返し処理</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E5C07B">gsap</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">from</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">item</span><span style="color: #ABB2BF">, { </span><span style="color: #7F848E">//from()メソッドは、デフォルトに向かって変化</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">y</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">10</span><span style="color: #ABB2BF">, </span><span style="color: #7F848E">//y座標を10px分から0に変化</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">opacity</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">, </span><span style="color: #7F848E">//opacityを0から1に変化</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">duration</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">0.6</span><span style="color: #ABB2BF">, </span><span style="color: #7F848E">//アニメーションを0.6秒間かけて実行</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">scrollTrigger</span><span style="color: #ABB2BF">: { </span><span style="color: #7F848E">//スクロール位置に応じたアニメーションの制御</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #E06C75">trigger</span><span style="color: #ABB2BF">: </span><span style="color: #E06C75">item</span><span style="color: #ABB2BF">, </span><span style="color: #7F848E">//各要素のトリガーとなる要素をitemに設定</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #E06C75">start</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">"top 75%"</span><span style="color: #ABB2BF">, </span><span style="color: #7F848E">//トリガー要素が画面上部から75%の位置にきいたら発火</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #E06C75">toggleActions</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">"play none none reverse"</span><span style="color: #ABB2BF">, </span><span style="color: #7F848E">//スクロールの向きに応じてアニメーションを再生したり、逆再生したりするように設定。１度きりの場合は不要</span></span>
+<span class="line"><span style="color: #ABB2BF">    },</span></span>
+<span class="line"><span style="color: #ABB2BF">  });</span></span>
+<span class="line"><span style="color: #ABB2BF">});</span></span></code></pre>
+<h3 id="使用例-2">使用例 2</h3>
+<p>特定の要素のみにアニメーションを当てる場合</p>
+<pre is:raw="" class="astro-code" style="background-color: #282c34; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;"><code><span class="line"><span style="color: #E5C07B">gsap</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">registerPlugin</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">ScrollTrigger</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E5C07B">gsap</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">from</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">".js-fade"</span><span style="color: #ABB2BF">, {</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">y</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">10</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">opacity</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">duration</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">0.6</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">scrollTrigger</span><span style="color: #ABB2BF">: {</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">trigger</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">".js-fade"</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">start</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">"top 75%"</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">toggleActions</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">"play none none reverse"</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">  },</span></span>
+<span class="line"><span style="color: #ABB2BF">});</span></span></code></pre>
+</div>
+    </div>
+  </div>
+</section>
+    <section class="section astro-SH445JDO">
+  <div class="inner astro-SH445JDO">
+    <div class="wrap astro-SH445JDO">
+      <h2 class="heading astro-SGPOAZ32">フェードインアニメーション02</h2>
+<div class="cont sample js-fadeStagger astro-SGPOAZ32">
+  <div class="item astro-SGPOAZ32"></div>
+  <div class="item astro-SGPOAZ32"></div>
+  <div class="item astro-SGPOAZ32"></div>
+  <div class="item astro-SGPOAZ32"></div>
+</div>
+
+<div class="md astro-SGPOAZ32">
+  <h3 id="使用例">使用例</h3>
+<p>アニメーションを使い回して遅延アニメーションさせる</p>
+<pre is:raw="" class="astro-code" style="background-color: #282c34; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;"><code><span class="line"><span style="color: #E5C07B">gsap</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">registerPlugin</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">ScrollTrigger</span><span style="color: #ABB2BF">); </span><span style="color: #7F848E">//ScrollTrigger プラグインを登録</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E5C07B">gsap</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">utils</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">toArray</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">".js-fadeStagger"</span><span style="color: #ABB2BF">).</span><span style="color: #61AFEF">forEach</span><span style="color: #ABB2BF">((</span><span style="color: #E06C75">item</span><span style="color: #ABB2BF">) </span><span style="color: #C678DD">=></span><span style="color: #ABB2BF"> {  </span><span style="color: #7F848E">// .js-fade"というクラス名を持つ全ての要素を配列に変換し、配列の各要素に対して forEach メソッドを使って繰り返し処理</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #C678DD">const</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">el</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">item</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">querySelectorAll</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">"div"</span><span style="color: #ABB2BF">); </span><span style="color: #7F848E">//各要素内のdiv要素を取得</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E5C07B">gsap</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">from</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">el</span><span style="color: #ABB2BF">, { </span><span style="color: #7F848E">//from()メソッドは、デフォルトに向かって変化</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">y</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">10</span><span style="color: #ABB2BF">, </span><span style="color: #7F848E">//y座標を10px分から0に変化</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">opacity</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">, </span><span style="color: #7F848E">//opacityを0から1に変化</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">duration</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">0.6</span><span style="color: #ABB2BF">, </span><span style="color: #7F848E">//アニメーションを0.6秒間かけて実行</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">scrollTrigger</span><span style="color: #ABB2BF">: { </span><span style="color: #7F848E">//スクロール位置に応じたアニメーションの制御</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #E06C75">trigger</span><span style="color: #ABB2BF">: </span><span style="color: #E06C75">item</span><span style="color: #ABB2BF">, </span><span style="color: #7F848E">//各要素のトリガーとなる要素をitemに設定</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #E06C75">start</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">"top 75%"</span><span style="color: #ABB2BF">, </span><span style="color: #7F848E">//トリガー要素が画面上部から75%の位置にきいたら発火</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #E06C75">toggleActions</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">"play none none reverse"</span><span style="color: #ABB2BF">, </span><span style="color: #7F848E">//スクロールの向きに応じてアニメーションを再生したり、逆再生したりするように設定。１度きりの場合は不要</span></span>
+<span class="line"><span style="color: #ABB2BF">    },</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">stagger</span><span style="color: #ABB2BF">: { </span><span style="color: #7F848E">//アニメーションの開始時間遅延</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #E06C75">amount</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">0.6</span><span style="color: #ABB2BF">, </span><span style="color: #7F848E">//アニメーションの間隔を0.6秒</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #E06C75">from</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">"start"</span><span style="color: #ABB2BF">, </span><span style="color: #7F848E">//最初のアニメーションがどこから始まるか</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #E06C75">ease</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">"sine.in"</span><span style="color: #ABB2BF">, </span><span style="color: #7F848E">//アニメーションのイージング</span></span>
+<span class="line"><span style="color: #ABB2BF">    },</span></span>
+<span class="line"><span style="color: #ABB2BF">  });</span></span>
+<span class="line"><span style="color: #ABB2BF">});</span></span></code></pre>
+<h3 id="使用例-02">使用例 02</h3>
+<p>特定の要素のみに遅延アニメーションさせる</p>
+<pre is:raw="" class="astro-code" style="background-color: #282c34; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;"><code><span class="line"><span style="color: #E5C07B">gsap</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">registerPlugin</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">ScrollTrigger</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E5C07B">gsap</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">from</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">".js-fadeStagger *"</span><span style="color: #ABB2BF">, {</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">y</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">10</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">opacity</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">duration</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">0.6</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">scrollTrigger</span><span style="color: #ABB2BF">: {</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">trigger</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">".js-fadeStagger"</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">start</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">"top 75%"</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">toggleActions</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">"play none none reverse"</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">  },</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">stagger</span><span style="color: #ABB2BF">: {</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">amount</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">0.6</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">from</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">"start"</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">ease</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">"sine.in"</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">  },</span></span>
+<span class="line"><span style="color: #ABB2BF">});</span></span></code></pre>
+</div>
+    </div>
+  </div>
+</section>
+    <section class="section astro-SH445JDO">
+  <div class="inner astro-SH445JDO">
+    <div class="wrap astro-SH445JDO">
+      <h2 class="heading astro-5NWXIGGU">swiper.js+gsapアニメーション</h2>
+<div class="cont sample astro-5NWXIGGU">
+  <div class="p-rtoasterSwiper astro-5NWXIGGU">
+    <div class="p-rtoasterSwiper__body js-rtoasterSwiper swiper astro-5NWXIGGU">
+      <ul class="p-rtoasterSwiper__wrap swiper-wrapper js-swiperStagger astro-5NWXIGGU">
+        <li id="rtpc_recommend_002_1" class="p-rtoasterSwiper__item swiper-slide astro-5NWXIGGU">
+          <img src="https://placehold.jp/400x400.png" alt="" class="astro-5NWXIGGU">
+        </li>
+        <li id="rtpc_recommend_002_2" class="p-rtoasterSwiper__item swiper-slide astro-5NWXIGGU">
+          <img src="https://placehold.jp/400x400.png" alt="" class="astro-5NWXIGGU">
+        </li>
+        <li id="rtpc_recommend_002_3" class="p-rtoasterSwiper__item swiper-slide astro-5NWXIGGU">
+          <img src="https://placehold.jp/400x400.png" alt="" class="astro-5NWXIGGU">
+        </li>
+        <li id="rtpc_recommend_002_4" class="p-rtoasterSwiper__item swiper-slide astro-5NWXIGGU">
+          <img src="https://placehold.jp/400x400.png" alt="" class="astro-5NWXIGGU">
+        </li>
+        <li id="rtpc_recommend_002_5" class="p-rtoasterSwiper__item swiper-slide astro-5NWXIGGU">
+          <img src="https://placehold.jp/400x400.png" alt="" class="astro-5NWXIGGU">
+        </li>
+        <li id="rtpc_recommend_002_6" class="p-rtoasterSwiper__item swiper-slide astro-5NWXIGGU">
+          <img src="https://placehold.jp/400x400.png" alt="" class="astro-5NWXIGGU">
+        </li>
+        <li id="rtpc_recommend_002_7" class="p-rtoasterSwiper__item swiper-slide astro-5NWXIGGU">
+          <img src="https://placehold.jp/400x400.png" alt="" class="astro-5NWXIGGU">
+        </li>
+        <li id="rtpc_recommend_002_8" class="p-rtoasterSwiper__item swiper-slide astro-5NWXIGGU">
+          <img src="https://placehold.jp/400x400.png" alt="" class="astro-5NWXIGGU">
+        </li>
+      </ul>
+    </div>
+    <div class="js-swiperBtn astro-5NWXIGGU">
+      <div class="p-rtoasterSwiper__button p-rtoasterSwiper__button--prev astro-5NWXIGGU" data-tracking="special_prev">
+        <button class="-prev astro-5NWXIGGU" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="false">
+          <i class="p-rtoasterSwiper__buttonIcon astro-5NWXIGGU"><img src="https://www.takashimaya.co.jp/sto/common/image/icn_slider-prev-b.png" alt="" class="astro-5NWXIGGU"></i>
+        </button>
+      </div>
+      <div class="p-rtoasterSwiper__button p-rtoasterSwiper__button--next astro-5NWXIGGU" data-tracking="special_next">
+        <button class="-next astro-5NWXIGGU" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false">
+          <i class="p-rtoasterSwiper__buttonIcon astro-5NWXIGGU"><img src="https://www.takashimaya.co.jp/sto/common/image/icn_slider-next-b.png" alt="" class="astro-5NWXIGGU"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="md astro-5NWXIGGU">
+  <h3 id="swiperjs使用例">swiper.js使用例</h3>
+<pre is:raw="" class="astro-code" style="background-color: #282c34; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;"><code><span class="line"><span style="color: #C678DD">const</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">mySwiper</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Swiper</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">".js-swiper"</span><span style="color: #ABB2BF">, {</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">slidesPerView</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">2</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">spaceBetween</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">24</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">freeMode</span><span style="color: #ABB2BF">: {</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">enabled</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">sticky</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">minimumVelocity</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">0.4</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">momentumBounce</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">momentumRatio</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">0.4</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">  },</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">breakpoints</span><span style="color: #ABB2BF">: {</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #D19A66">769</span><span style="color: #ABB2BF">: {</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #E06C75">slidesPerView</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">4</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #E06C75">navigation</span><span style="color: #ABB2BF">: {</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E06C75">nextEl</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">".p-swiper__button--next"</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E06C75">prevEl</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">".p-swiper__button--prev"</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">      },</span></span>
+<span class="line"><span style="color: #ABB2BF">    },</span></span>
+<span class="line"><span style="color: #ABB2BF">  },</span></span>
+<span class="line"><span style="color: #ABB2BF">});</span></span></code></pre>
+<h3 id="gsap使用例">GSAP使用例</h3>
+<pre is:raw="" class="astro-code" style="background-color: #282c34; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;"><code><span class="line"><span style="color: #7F848E">//ScrollTriggerプラグインを登録</span></span>
+<span class="line"><span style="color: #E5C07B">gsap</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">registerPlugin</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">ScrollTrigger</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #7F848E">// スワイパーの最初の4つの要素を初期状態で非表示に設定</span></span>
+<span class="line"><span style="color: #E5C07B">gsap</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">set</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">".js-swiperStagger li:nth-child(-n+4)"</span><span style="color: #ABB2BF">, {</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">opacity</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">x</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">40</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #7F848E">// スワイパーのボタンを初期状態で非表示に設定</span></span>
+<span class="line"><span style="color: #E5C07B">gsap</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">set</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">".js-swiperBtn"</span><span style="color: #ABB2BF">, {</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">opacity</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #7F848E">// スクロールトリガーを使用して、アニメーションを制御</span></span>
+<span class="line"><span style="color: #E06C75">gsap</span></span>
+<span class="line"><span style="color: #ABB2BF">  .</span><span style="color: #61AFEF">timeline</span><span style="color: #ABB2BF">({</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">defaults</span><span style="color: #ABB2BF">: {</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #E06C75">duration</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">0.6</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">    },</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">scrollTrigger</span><span style="color: #ABB2BF">: {</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #E06C75">trigger</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">".js-swiperStagger"</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #E06C75">start</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">"top 75%"</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #E06C75">toggleActions</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">"play none none reverse"</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">    },</span></span>
+<span class="line"><span style="color: #ABB2BF">  })</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #7F848E">// スワイパーの最初の4つの要素をフェードインさせ、スライドさせる</span></span>
+<span class="line"><span style="color: #ABB2BF">  .</span><span style="color: #61AFEF">to</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">".js-swiperStagger li:nth-child(-n+4)"</span><span style="color: #ABB2BF">, {</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">opacity</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">x</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">stagger</span><span style="color: #ABB2BF">: {</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #E06C75">amount</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">0.8</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #E06C75">from</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">"start"</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #E06C75">ease</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">"sine.in"</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">    },</span></span>
+<span class="line"><span style="color: #ABB2BF">  })</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #7F848E">// スワイパーのボタンをフェードインさせる</span></span>
+<span class="line"><span style="color: #ABB2BF">  .</span><span style="color: #61AFEF">to</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">".js-swiperBtn"</span><span style="color: #ABB2BF">, {</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">opacity</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">  });</span></span></code></pre>
+</div>
+    </div>
+  </div>
+</section>
+  </main>
+    <footer class="footer astro-SZ7XMLTE">
+  <small class="text astro-SZ7XMLTE">GSAP</small>
+</footer>
+  
+
+<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@0.2.28/bundled/lenis.js"></script>
+<script>
+  const lenis = new Lenis({
+    duration: 2.8,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
+    direction: "vertical", // vertical, horizontal
+    gestureDirection: "vertical", // vertical, horizontal, both
+    smooth: true,
+    mouseMultiplier: 1,
+    smoothTouch: false,
+    touchMultiplier: 2,
+    infinite: false,
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);
+</script></body></html>
