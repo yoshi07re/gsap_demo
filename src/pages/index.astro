@@ -10,8 +10,10 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="GSAPサンプルページ">
   <main>
     <section class="main">
-      <h1 class="title">GSAPサンプルページ</h1>
-      <p style="text-align: center;">あくまでもサンプルコードです。書き方は複数あります。</p>
+      <div class="inner">
+        <h1 class="title">GSAPサンプルページ</h1>
+        <p style="text-align: center;">あくまでもサンプルコードです。書き方は複数あります。</p>
+      </div>
     </section>
     <Section>
       <Demo01 />
@@ -33,11 +35,19 @@ import Layout from "../layouts/Layout.astro";
 
   .main {
     padding-top: g.rem(64);
+
+    .inner {
+      padding: 0 g.vw(16px, 375px);
+
+      @include g.mq(md) {
+        padding: 0 g.vw(32px, 1200px);
+      }
+    }
   }
 
   .title {
-    font-size: g.rem(32);
-    font-weight: 600;
+    font-size: g.calc(font-size, 375px, 1200px, 16px, 32px);
+    font-weight: 400;
     text-align: center;
   }
 
