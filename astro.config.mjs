@@ -14,4 +14,14 @@ export default defineConfig({
   },
   site: "https://yoshi07re.github.io/",
   base: '/gsap_demo',
+  vite: {
+    build: {
+      assetsInlineLimit: 0,
+      rollupOptions: {
+        output: {
+          assetFileNames: "[ext]/[name][extname]",
+        },
+      },
+    },
+  },
 });
